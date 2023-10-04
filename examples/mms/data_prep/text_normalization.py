@@ -2,7 +2,7 @@ import json
 import re
 import unicodedata
 
-from examples.mms.data_prep.norm_config import norm_config
+from fairseq.examples.mms.data_prep.norm_config import norm_config
 
 
 def text_normalize(text, iso_code, lower_case=True, remove_numbers=True, remove_brackets=False):
