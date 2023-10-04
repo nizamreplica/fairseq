@@ -3,9 +3,10 @@ requires = [
   "setuptools>=18.0",
   "wheel",
   "cython",
-  "numpy>=1.21.3",
-  "torch>=1.10",
+  "numpy==1.22.0",
+  "torch>=2.0.0, !=2.0.1",
 ]
+
 build-backend = "setuptools.build_meta"
 
 [tool.black]
