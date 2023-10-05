@@ -21,11 +21,12 @@ EMISSION_INTERVAL = 30
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 def generate_emissions(model, audio_file):
-    waveform, _ = torchaudio.load(audio_file)  # waveform: channels X T
+    waveform, audio_sf = torchaudio.load(audio_file)  # waveform: channels X T
     waveform = waveform.to(DEVICE)
-    total_duration = sox.file_info.duration(audio_file)
+    total_duration = waveform.shape[-1] / audio_sf
+    # total_duration = sox.file_info.duration(audio_file)
 
-    audio_sf = sox.file_info.sample_rate(audio_file)
+    # audio_sf = sox.file_info.sample_rate(audio_file)
     assert audio_sf == SAMPLING_FREQ
 
     emissions_arr = []
